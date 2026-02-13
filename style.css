@@ -30,3 +30,19 @@ header p { font-size: 1.2rem; color: #94a3b8; margin-bottom: 30px; }
 .project-card { background: #1e293b; padding: 20px; border-radius: 12px; border: 1px solid #334155; }
 .tags { margin: 15px 0; }
 .tags span { background: #334155; font-size: 0.8rem; padding: 4px 8px; border-radius: 4px; margin-right: 5px; }
+
+.profile-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 10%;
+    height: 70vh;
+}
+
+.profile-image img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%; /* Makes it a circle */
+    border: 4px solid #38bdf8; /* A glow effect */
+    object-fit: cover; /* Prevents the image from stretching */
+}
