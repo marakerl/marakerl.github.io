@@ -1,15 +1,15 @@
 /* General Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body { 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     background-color: #0f172a; 
     color: #f1f5f9; 
     line-height: 1.6;
-    body {
-    background-image: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('background.jpg');
+    /* Fixed the nesting: Removed the extra body tag inside here */
+    background-image: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1667670778881-537035257bd8?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
     background-size: cover;
-    background-attachment: fixed; /* Makes the background stay still while you scroll */
-}
+    background-attachment: fixed;
 }
 
 /* Navigation */
@@ -19,14 +19,15 @@ nav ul li { margin-left: 20px; }
 nav ul li a { color: #94a3b8; text-decoration: none; font-weight: bold; }
 nav ul li a:hover { color: #38bdf8; }
 
-/* Hero Section */
-header { height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+/* Adjusted the 'header' selector to play nice with 'profile-container' */
+header { height: 70vh; display: flex; align-items: center; }
+
 h1 { font-size: 3.5rem; margin-bottom: 10px; }
 .highlight { color: #38bdf8; }
-header p { font-size: 1.2rem; color: #94a3b8; margin-bottom: 30px; }
+.profile-text p { font-size: 1.2rem; color: #94a3b8; margin-bottom: 30px; }
 
 /* Buttons */
-.btn { background: #38bdf8; color: #0f172a; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; }
+.btn { background: #38bdf8; color: #0f172a; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; }
 .btn-small { color: #38bdf8; text-decoration: none; font-size: 0.9rem; border: 1px solid #38bdf8; padding: 5px 10px; border-radius: 4px; }
 
 /* Projects Grid */
@@ -36,32 +37,32 @@ header p { font-size: 1.2rem; color: #94a3b8; margin-bottom: 30px; }
 .tags { margin: 15px 0; }
 .tags span { background: #334155; font-size: 0.8rem; padding: 4px 8px; border-radius: 4px; margin-right: 5px; }
 
-/* This forces the text and image to be side-by-side */
+/* SIDE BY SIDE LAYOUT */
 .profile-container {
     display: flex; 
-    justify-content: space-between; /* Pushes text to left, image to right */
-    align-items: center;           /* Aligns them vertically in the middle */
-    padding: 0 10%;                /* Adds space on the far left/right */
-    height: 70vh;                  /* Gives the section height */
+    flex-direction: row; /* Forces horizontal */
+    justify-content: space-between; 
+    align-items: center;           
+    padding: 0 10%;                
 }
 
 .profile-text {
-    flex: 1;                       /* Takes up half the space */
-    text-align: left;              /* Aligns text to the left */
+    flex: 1;                       
+    text-align: left;              
 }
 
 .profile-image {
-    flex: 1;                       /* Takes up the other half */
+    flex: 1;                       
     display: flex;
-    justify-content: center;       /* Centers the image in its half */
+    justify-content: flex-end; /* Pushes image to the right */
 }
 
-/* This makes the image a perfect circle */
+/* THE CIRCLE */
 .profile-image img {
-    width: 300px;                  /* Set a fixed size */
-    height: 300px;                 /* Must be the same as width for a circle */
-    border-radius: 50%;            /* This is the "circle" magic */
-    object-fit: cover;             /* Ensures the photo isn't squished */
-    border: 5px solid #38bdf8;     /* Adds a nice frame */
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.5); /* Adds a glow */
+    width: 320px;                  
+    height: 320px;                 
+    border-radius: 50%;            
+    object-fit: cover;             
+    border: 5px solid #38bdf8;     
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.3); 
 }
