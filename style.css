@@ -45,36 +45,35 @@ h1 { font-size: 3.5rem; margin-bottom: 10px; }
 .tags { margin: 15px 0; }
 .tags span { background: #334155; font-size: 0.8rem; padding: 4px 8px; border-radius: 4px; margin-right: 5px; }
 
-/* --- THE STACKED & CENTERED LAYOUT --- */
+/* --- THE ULTIMATE CENTERED STACK --- */
 header.profile-container {
-    display: flex; 
-    flex-direction: column; /* This stacks image on top of text */
-    justify-content: center; 
-    align-items: center;    /* This centers everything horizontally */
-    text-align: center;     /* This centers the actual text lines */
-    padding: 4rem 10%;                
+    display: flex !important; 
+    flex-direction: column !important; /* Forces the vertical stack */
+    justify-content: center !important; 
+    align-items: center !important;    /* Forces horizontal centering */
+    text-align: center !important; 
+    padding: 60px 10%;                
     min-height: 85vh;       
-    gap: 30px;              /* Adds space between the image and the text */
-}
-
-.profile-text {
-    flex: none;             /* Removes the "half-width" restriction */
-    max-width: 800px;       /* Keeps the text from getting too wide on big screens */
+    width: 100%;
 }
 
 .profile-image {
-    flex: none;
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    margin-bottom: 10px;    /* Extra space specifically under the photo */
+    display: flex !important;
+    justify-content: center !important;
+    margin-bottom: 20px; /* Space between photo and name */
 }
 
 .profile-image img {
-    width: 280px;           /* Slightly smaller looks better when stacked */
+    width: 280px;           
     height: 280px;                 
     border-radius: 50%;            
     object-fit: cover;             
     border: 5px solid #38bdf8;     
     box-shadow: 0 0 30px rgba(56, 189, 248, 0.3); 
+}
+
+.profile-text {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; /* Ensures the button inside also centers */
 }
