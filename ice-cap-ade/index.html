@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ice Cap-ade | Play Now</title>
+    <script src="https://cjrtnc.leaningtech.com/3.0/cj3loader.js"></script>
+    <style>
+        body { margin: 0; background-color: #0f172a; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: sans-serif; }
+        #container { width: 800px; height: 600px; border: 3px solid #38bdf8; box-shadow: 0 0 20px rgba(56, 189, 248, 0.5); }
+        .back-link { margin-top: 20px; color: #38bdf8; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h2>Ice Cap-ade</h2>
+    <div id="container"></div>
+    <a href="../index.html" class="back-link">← Back to Portfolio</a>
+
+    <script>
+        async function loadGame() {
+            await cheerpjInit();
+            const container = document.getElementById("container");
+            cheerpjCreateDisplay(800, 600, container);
+            // This points to the jar in the same folder
+            await cheerpjRunJar("/app/ice-cap-ade/icecapade.jar");
+        }
+        loadGame();
+    </script>
+</body>
+</html>
