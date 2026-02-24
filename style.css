@@ -57,13 +57,6 @@ header.profile-container {
 .profile-text p { font-size: 1.2rem; color: #94a3b8; margin-bottom: 30px; max-width: 600px; }
 
 /* 4. Button & LinkedIn Grouping */
-.cta-group {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-}
-
 .btn { 
     background: #38bdf8; 
     color: #0f172a; 
@@ -90,6 +83,34 @@ header.profile-container {
     transition: 0.3s;
 }
 .linkedin-btn:hover { background-color: #005582; transform: scale(1.1); }
+
+.github-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #24292e; /* GitHub Dark Gray */
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.6rem;
+    transition: 0.3s ease;
+}
+
+.github-btn:hover {
+    background-color: #404448;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.cta-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Adjust this to space them out more or less */
+    margin-top: 20px;
+}
 
 /* 5. Projects Section */
 #projects { padding: 80px 10%; }
