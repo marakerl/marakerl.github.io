@@ -66,8 +66,54 @@ header.profile-container {
     font-weight: bold; 
     display: inline-block;
     transition: 0.3s;
+    border: none;      /* Add this */
+    cursor: pointer;   /* Add this */
+    font-family: inherit; /* Add this to keep the font the same */
 }
+
 .btn:hover { background: #7dd3fc; transform: translateY(-2px); }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;      /* Hidden by default */
+    position: absolute;
+    background-color: #1e293b; 
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+    z-index: 100;
+    border-radius: 8px;
+    margin-top: 8px;
+    border: 1px solid #334155;
+    overflow: hidden;   /* Ensures corners stay rounded */
+    left: 50%;
+    transform: translateX(-50%); /* Centers the menu under the button */
+}
+
+/* Links inside the menu */
+.dropdown-content a {
+    color: #f1f5f9;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-weight: bold;
+    transition: 0.2s;
+    text-align: left;
+}
+
+/* Hover effect for the flags/languages */
+.dropdown-content a:hover {
+    background-color: #38bdf8;
+    color: #0f172a;
+}
+
+/* The Magic: Show the menu when hovering over the container */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
 .linkedin-btn {
     display: flex;

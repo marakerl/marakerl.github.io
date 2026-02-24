@@ -28,10 +28,18 @@
             <p>Computer Engineering student | Automationspecialist/Developer</p>
             
             <div class="cta-group">
-                <a href="CV - 2026 (Svenska).pdf" class="btn" download>Download My CV</a>
+                <div class = "dropdown">
+                    <button class="btn">Download My CV <i class="fa-solid fa-checron-down" style="font-size: 0.8rem; margin-left: 5px;"></i></button>
+                    <div class="dropdown-content">
+                        <a href="CV - Marcus Åkerlund (Svenska).pdf" download>Swedish</a>
+                        <a href="CV - Marcus Åkerlund (English).pdf" download>English</a>
+                    </div>
+                </div>
+                
                 <a href="https://www.linkedin.com/in/marcus-%C3%A5kerlund-17baa4192/" target="_blank" class="linkedin-btn">
                     <i class="fa-brands fa-linkedin-in"></i>
                 </a>
+                
                 <a href="https://github.com/marakerl" target="_blank" class="github-btn">
                     <i class="fa-brands fa-github"></i>
                 </a>
@@ -41,29 +49,59 @@
 
     <section id="projects">
         <h2>Featured Projects</h2>
+        
         <div class="project-grid">
+
             <div class="project-card">
                 <h3>F1 Race Overview</h3>
                 <p>An eagle eye perspective on past F1 races. Features plotted car and track with telemetry calculation.</p>
                 <div class="tags"><span>Python</span> <span>MatPlotLib</span></div>
-                <a href="#" class="btn-small">View Code</a>
+                <a href="https://github.com/marakerl/f1-python-project" class="btn-small">View Code</a>
             </div>
 
             <div class="project-card">
-                <h3>Java Logic Engine</h3>
-                <p>An object-oriented simulation tool built in Java using design patterns.</p>
-                <div class="tags"><span>Java</span> <span>OOP</span></div>
-                <a href="#" class="btn-small">View Code</a>
+                <h3>Chatt-Application</h3>
+                <p>A chat application built in JavaFX. Both a client and a server side of which communicated through Socket communication. SQL database of chatt history and users on the server side</p>
+                <div class="tags"><span>Java</span> <span>JavaFX</span><span>SQL</span><span>Sockets</span> </div>
+                <a href="https://github.com/lucaschristiansson/chat_application" class="btn-small">View Code</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Paint</h3>
+                <p>A basic version of paint created from scratch in Java with Swing</p>
+                <div class="tags"><span>Java</span> <span>Swing</span></div>
+                <a href="https://github.com/Metterklus1/PaintApplication" class="btn-small">View Code</a>
             </div>
 
             <div class="project-card">
                 <h3>Ice Cap-ade</h3>
                 <p>A Java-based arcade game where you navigate ice blocks. Features custom collision logic and sprite animations.</p>
-                <div class="tags"><span>Java</span> <span>Game Dev</span> <span>CheerpJ</span></div>
-                
-                <a href="ice-cap-ade/index.html" class="btn-small">Run Project</a>
-                <a href="https://github.com/marakerl/Ice-Cap-ade" target="_blank" class="btn-small">View Code</a>
-</div>
+                <div class="tags"><span>Java</span> <span>Swing</span> <span>Sprites</span> <span>CheerpJ</span></div>
+                    <a href="ice-cap-ade/index.html" class="btn-small">Run Project</a>
+                    <a href="https://github.com/marakerl/Ice-Cap-ade" target="_blank" class="btn-small">View Code</a>
+            </div>
+
+            <div class="project-card">
+                <h3>School System</h3>
+                <p>A school database system created with SQL (Postgress). Basic stundent client made in java</p>
+                <div class="tags"><span>SQL</span> <span>Java</span> <span>Postgress</span> </div>
+                    <a href="#" target="_blank" class="btn-small">View Code</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Racing Game</h3>
+                <p>A racing game made in C for the MD407 board. </p>
+                <div class="tags"><span>C</span> <span>Sprites</span> <span>Bear-Metall</span> <span>Hardware Implemantation</span></div>
+                <a href="https://github.com/auniquee/racing_game" class="btn-small">View Code</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Pong</h3>
+                <p>2-Player Pong made on the MD407 board. Along with physics for the ball we also made a sprite system to draw the ball and paddles, and a collision system for those sprites. </p>
+                <div class="tags"><span>C</span> <span>Bear-Metall</span> <span>Hardware Implemantation</span></div>
+                <a href="https://github.com/auniquee/pong" class="btn-small">View Code</a>
+            </div>
+
         </div>
     </section>
 
