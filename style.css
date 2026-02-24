@@ -79,29 +79,32 @@ header.profile-container {
 }
 
 .dropdown-content {
-    display: none;      /* Hidden by default */
+    display: none;
     position: absolute;
-    background-color: #1e293b; 
+    background-color: #1e293b;
     min-width: 180px;
     box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
     z-index: 100;
     border-radius: 8px;
-    margin-top: 8px;
+    
+    /* --- THE FIX --- */
+    padding-top: 10px;    /* Creates an invisible bridge */
+    margin-top: -5px;     /* Pulls the menu closer to the button */
+    /* --------------- */
+    
     border: 1px solid #334155;
-    overflow: hidden;   /* Ensures corners stay rounded */
     left: 50%;
-    transform: translateX(-50%); /* Centers the menu under the button */
+    transform: translateX(-50%);
 }
 
 /* Links inside the menu */
 .dropdown-content a {
+    background-color: #1e293b; /* Keep the links dark */
     color: #f1f5f9;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
     font-weight: bold;
-    transition: 0.2s;
-    text-align: left;
 }
 
 /* Hover effect for the flags/languages */
