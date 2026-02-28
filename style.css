@@ -98,14 +98,6 @@ header.hero {
     align-items: flex-end;
 }
 
-.cutout-img {
-    max-width: 100%;
-    height: auto;
-    max-height: 80vh;
-    /* This shadow makes the cutout pop off the background */
-    filter: drop-shadow(10px 10px 30px rgba(0, 0, 0, 0.6));
-    animation: fadeInRight 1.2s ease-out;
-}
 
 @keyframes fadeInRight {
     from { opacity: 0; transform: translateX(30px); }
