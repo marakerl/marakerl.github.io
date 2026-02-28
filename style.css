@@ -31,22 +31,55 @@ nav ul li { margin-left: 20px; }
 nav ul li a { color: #94a3b8; text-decoration: none; font-weight: bold; }
 nav ul li a:hover { color: #38bdf8; }
 
-/* 3. Hero Layout (Replaces Centered Profile Section) */
+/* --- 3. Hero Section (Side-by-Side) --- */
 header.hero {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 90vh;
-    padding: 2rem 10%;
+    min-height: 0vh;
+    padding: 0 10%; /* Side padding for the whole section */
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-content {
     display: flex;
+    flex-direction: row; /* This puts them side-by-side */
     align-items: center;
     justify-content: space-between;
     width: 100%;
     max-width: 1200px;
-    gap: 50px;
+    z-index: 5;
+}
+
+.hero-text {
+    flex: 1; /* Takes up 50% width */
+    text-align: left; /* Moves text alignment to the left */
+    padding-right: 20px;
+}
+
+.hero-text h1 { 
+    font-size: 4rem; 
+    line-height: 1.1;
+    margin-bottom: 15px; 
+}
+
+.hero-image-container {
+    flex: 1; /* Takes up 50% width */
+    display: flex;
+    justify-content: flex-end; /* Pushes image to the far right */
+    align-items: flex-end;
+    position: relative;
+    height: 100%;
+}
+
+.hero-cutout {
+    max-height: 85vh; /* Keep the height large */
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(10px 10px 30px rgba(0, 0, 0, 0.5));
+    /* Position the image to touch the bottom for the "cutout" effect */
+    margin-bottom: -000px; 
 }
 
 .hero-text {
@@ -176,12 +209,52 @@ header.hero {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
+/* --- 4. CTA Group Alignment --- */
 .cta-group {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Aligned to left for side-by-side hero */
-    gap: 15px; /* Adjust this to space them out more or less */
-    margin-top: 20px;
+    justify-content: flex-start; /* Move buttons from center to left */
+    gap: 15px; 
+    margin-top: 25px;
+}
+
+/* --- 4. About Me (The "Cutter" Section) --- */
+#about {
+    position: relative;
+    z-index: 10; /* Sits on top of the image */
+    background-color: #0f172a;
+    padding: 100px 10%;
+    /* This shadow blends the bottom of the photo into the next section */
+    box-shadow: 0 -30px 50px rgba(15, 23, 42, 1); 
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content h2 { font-size: 2.5rem; margin-bottom: 2rem; }zzzzzzzz
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+.stat-item span {
+    font-size: 2rem;
+    color: #38bdf8;
+    font-weight: bold;
+    display: block;
+}
+
+/* --- Responsive Fix --- */
+@media (max-width: 768px) {
+    .hero-cutout { max-height: 50vh; }
+    .hero-text h1 { font-size: 2.5rem; }
+    .stats { flex-direction: column; gap: 20px; }
 }
 
 /* 5. Projects Section */
