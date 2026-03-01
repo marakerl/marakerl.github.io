@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Paint | Use Now</title>
+    <script src="https://cjrtnc.leaningtech.com/3.0/cj3loader.js"></script>
+    <style>
+        body { margin: 0; background-color: #0f172a; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: sans-serif; }
+        #container { width: 1000px; height: 1000px; border: 3px solid #38bdf8; box-shadow: 0 0 20px rgba(56, 189, 248, 0.5); }
+        .back-link { margin-top: 20px; color: #38bdf8; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h2>Paint</h2>
+    <div id="container"></div>
+    <a href="../index.html" class="back-link">← Back to Portfolio</a>
+
+    <script>
+        async function loadPaint() {
+            await cheerpjInit();
+            const container = document.getElementById("container");
+            cheerpjCreateDisplay(1000, 1000, container);
+            
+            await cheerpjRunJar("/app/Paint/paint.jar");
+        }
+        loadPaint();
+    </script>
+</body>
+</html>
