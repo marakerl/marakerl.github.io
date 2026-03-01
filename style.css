@@ -6,7 +6,7 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Makes clicking nav links scroll smoothly */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -14,7 +14,8 @@ body {
     background-color: #0f172a; 
     color: #f1f5f9; 
     line-height: 1.6;
-    background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), 
+    /* Subtle background image and gradient overlay */
+    background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), 
                 url('https://images.unsplash.com/photo-1667670778881-537035257bd8?q=80&w=1160&auto=format&fit=crop') no-repeat center center fixed;
     background-size: cover;
 }
@@ -24,87 +25,80 @@ nav {
     display: flex; 
     justify-content: space-between; 
     padding: 2rem 10%; 
-    align-items: center; 
+    align-items: center;
+    position: relative;
+    z-index: 100;
 }
 nav ul { display: flex; list-style: none; }
 nav ul li { margin-left: 20px; }
-nav ul li a { color: #94a3b8; text-decoration: none; font-weight: bold; }
+nav ul li a { color: #94a3b8; text-decoration: none; font-weight: bold; transition: 0.3s; }
 nav ul li a:hover { color: #38bdf8; }
 
-/* --- 3. Hero Section (Side-by-Side) --- */
+/* 3. Hero Section (The Wrapping Fix) */
+/* 3. Hero Section (The Vertical Pin Fix) */
 header.hero {
     display: flex;
-    align-items: center;
+    align-items: flex-end; 
     justify-content: center;
+    height: auto;
     min-height: 0vh;
-    padding: 0 10%; /* Side padding for the whole section */
+    padding: 40px 10% 0 10%; 
     position: relative;
     overflow: hidden;
 }
 
+
+
 .hero-content {
     display: flex;
-    flex-direction: row; /* This puts them side-by-side */
-    align-items: center;
-    justify-content: space-between;
+    flex-wrap: wrap; 
+    align-items: flex-end; /* CHANGE: Ensures both text and image sit on the same bottom baseline */
+    justify-content: center; 
     width: 100%;
     max-width: 1200px;
+    gap: 40px; 
     z-index: 5;
+    margin-top: 0;
 }
 
 .hero-text {
-    flex: 1; /* Takes up 50% width */
-    text-align: left; /* Moves text alignment to the left */
-    padding-right: 20px;
+    flex: 1 1 500px; 
+    text-align: left;
+    position: relative;
+    z-index: 50; 
+    padding-bottom: 25vh; /* CHANGE: Lifts text slightly so it aligns with your chest/face instead of your feet */
+
 }
 
 .hero-text h1 { 
-    font-size: 4rem; 
+    font-size: clamp(2.5rem, 6vw, 4.5rem); 
     line-height: 1.1;
     margin-bottom: 15px; 
 }
 
+.highlight { color: #38bdf8; }
+.hero-text p { font-size: clamp(1rem, 2vw, 1.25rem); color: #94a3b8; margin-bottom: 30px; }
+
 .hero-image-container {
-    flex: 1; /* Takes up 50% width */
+    flex: 1 1 450px; 
     display: flex;
-    justify-content: flex-end; /* Pushes image to the far right */
-    align-items: flex-end;
+    justify-content: center;
+    align-items: flex-end; /* KEEP: This is vital for the cutout effect */
     position: relative;
-    height: 100%;
+    z-index: 1; 
 }
 
 .hero-cutout {
-    max-height: 85vh; /* Keep the height large */
+    max-height: 70vh; /* CHANGE: Slightly reduced from 85vh to leave more "breathing room" at the top */
     width: auto;
+    max-width: 100%;
     object-fit: contain;
-    filter: drop-shadow(10px 10px 30px rgba(0, 0, 0, 0.5));
-    /* Position the image to touch the bottom for the "cutout" effect */
-    margin-bottom: -000px; 
+    filter: drop-shadow(10px 10px 40px rgba(0, 0, 0, 0.6));
+    display: block;
+    margin-bottom: -5px; 
 }
 
-.hero-text {
-    flex: 1;
-    text-align: left;
-}
-
-.hero-text h1 { font-size: 3.5rem; margin-bottom: 10px; }
-.highlight { color: #38bdf8; }
-.hero-text p { font-size: 1.2rem; color: #94a3b8; margin-bottom: 30px; max-width: 600px; }
-
-.hero-image-container {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-}
-
-
-@keyframes fadeInRight {
-    from { opacity: 0; transform: translateX(30px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-/* 4. Button & LinkedIn Grouping */
+/* 4. Buttons & Social Icons */
 .btn { 
     background: #38bdf8; 
     color: #0f172a; 
@@ -112,60 +106,19 @@ header.hero {
     border-radius: 8px; 
     text-decoration: none; 
     font-weight: bold; 
-    display: inline-block;
     transition: 0.3s;
-    border: none;      /* Add this */
-    cursor: pointer;   /* Add this */
-    font-family: inherit; /* Add this to keep the font the same */
+    border: none;
+    cursor: pointer;
 }
-
 .btn:hover { background: #7dd3fc; transform: translateY(-2px); }
 
-.dropdown {
+.cta-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
     position: relative;
-    display: inline-block;
+    z-index: 60;
 }
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #1e293b;
-    min-width: 180px;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
-    z-index: 100;
-    border-radius: 8px;
-    
-    /* --- THE FIX --- */
-    padding-top: 10px;    /* Creates an invisible bridge */
-    margin-top: -5px;     /* Pulls the menu closer to the button */
-    /* --------------- */
-    
-    border: 1px solid #334155;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* Links inside the menu */
-.dropdown-content a {
-    background-color: #1e293b; /* Keep the links dark */
-    color: #f1f5f9;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    font-weight: bold;
-}
-
-/* Hover effect for the flags/languages */
-.dropdown-content a:hover {
-    background-color: #38bdf8;
-    color: #0f172a;
-}
-
-/* The Magic: Show the menu when hovering over the container */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
 .linkedin-btn {
     display: flex;
     align-items: center;
@@ -201,23 +154,34 @@ header.hero {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
-/* --- 4. CTA Group Alignment --- */
-.cta-group {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Move buttons from center to left */
-    gap: 15px; 
-    margin-top: 25px;
-}
 
-/* --- 4. About Me (The "Cutter" Section) --- */
+/* Dropdown Menu */
+.dropdown { position: relative; }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1e293b;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+    z-index: 100;
+    border-radius: 8px;
+    padding-top: 10px;
+    margin-top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.dropdown-content a { color: #f1f5f9; padding: 12px 16px; text-decoration: none; display: block; font-weight: bold; }
+.dropdown-content a:hover { background-color: #38bdf8; color: #0f172a; }
+.dropdown:hover .dropdown-content { display: block; }
+
+/* 5. About Me (The Cutter) */
 #about {
     position: relative;
-    z-index: 10; /* Sits on top of the image */
-    background-color: #0f172a;
+    z-index: 10;
+    background-color: #0f172a; /* Re-applied solid background */
     padding: 100px 10%;
-    /* This shadow blends the bottom of the photo into the next section */
-    box-shadow: 0 -30px 50px rgba(15, 23, 42, 1); 
+    margin-top: -60px; /* Cut effect */
+    box-shadow: 0 -30px 50px rgba(15, 23, 42, 1);
 }
 
 .about-content {
@@ -226,7 +190,7 @@ header.hero {
     text-align: center;
 }
 
-.about-content h2 { font-size: 2.5rem; margin-bottom: 2rem; }zzzzzzzz
+.about-content h2 { font-size: 2.5rem; margin-bottom: 2rem; }
 
 .stats {
     display: flex;
@@ -242,30 +206,22 @@ header.hero {
     display: block;
 }
 
-/* --- Responsive Fix --- */
-@media (max-width: 768px) {
-    .hero-cutout { max-height: 50vh; }
-    .hero-text h1 { font-size: 2.5rem; }
-    .stats { flex-direction: column; gap: 20px; }
+/* 6. Projects Section */
+#projects { 
+    padding: 80px 10%; 
+    /* Removed the forced solid background I added previously */
 }
 
-/* 5. Projects Section */
-#projects { padding: 80px 10%; }
 .project-grid { 
     display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 25px; 
-    margin-top: 40px; 
 }
-.project-card { 
-    background: #1e293b; 
-    padding: 25px; 
-    border-radius: 12px; 
-    border: 1px solid #334155; 
-    text-align: left;
-}
+.project-card { background: #1e293b; padding: 25px; border-radius: 12px; border: 1px solid #334155; }
+.tags span { background: #334155; font-size: 0.75rem; padding: 4px 10px; border-radius: 4px; margin-right: 8px; }
+.btn-small { color: #38bdf8; text-decoration: none; font-size: 0.9rem; border: 1px solid #38bdf8; padding: 6px 12px; border-radius: 4px; display: inline-block; margin-top: 15px; }
 
-/* 6. Contact Section */
+/* 7. Contact Section */
 #contact {
     padding: 100px 10%;
     text-align: center;
@@ -274,20 +230,22 @@ header.hero {
 #contact h2 { font-size: 2.5rem; margin-bottom: 20px; }
 #contact p { color: #94a3b8; max-width: 600px; margin: 0 auto 30px; }
 
-/* 7. Responsive Fixes */
-@media (max-width: 768px) {
-    .hero-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
+/* 8. RESPONSIVE FIXES (The Wrap Logic) */
+@media (max-width: 1237px) { 
+    .hero-text {
+        padding-bottom: 0; /*Remove padding when picture stacks*/
+        
     }
-    .hero-text { text-align: center; order: 1; }
-    .cta-group { justify-content: center; }
-    .hero-image-container { order: 2; justify-content: center; }
-    .cutout-img { max-height: 40vh; }
-    .hero-text h1 { font-size: 2.5rem; }
 }
 
-/* Tags & Extras */
-.tags span { background: #334155; font-size: 0.75rem; padding: 4px 10px; border-radius: 4px; margin-right: 8px; }
-.btn-small { color: #38bdf8; text-decoration: none; font-size: 0.9rem; border: 1px solid #38bdf8; padding: 6px 12px; border-radius: 4px; display: inline-block; margin-top: 10px; }
+@media (max-width: 800px) {
+    .hero-text { text-align: center; padding-right: 0; margin-bottom: 20px; }
+    .cta-group { justify-content: center; }
+    .hero-cutout { max-height: 50vh; margin-bottom: -40px; }
+    #about { margin-top: -40px; }
+}
+
+@media (max-width: 480px) {
+    nav { flex-direction: column; gap: 10px; }
+    .stats { flex-direction: column; gap: 30px; }
+}
